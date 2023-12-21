@@ -12,6 +12,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/objdetect.hpp>
 #include "../util/ReaderFilesInFolder.h"
+#include "../util/Config.hpp"
 
 using namespace cv;
 using namespace std;

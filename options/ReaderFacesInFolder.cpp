@@ -6,14 +6,33 @@
 
 namespace ReaderFacesFolder {
     void ReaderFacesInFolder:: read_faces_in_folder(bool debug_mode) {
+
+        bool debugMode = debug_mode;
+        Config config;
+        std::string nomeArquivo = "../config.ini";
+        std::map<std::string, std::map<std::string, std::string>> readConfig = config.read_config(nomeArquivo);
+
         // Especifica a largura máxima desejada para a imagem
-        // PADRÃO
         int maxWidth = 500;
         int maxHeight = 1200;
 
-        string folder_img_path = "../img";
-        string classifier_path = "../model/haarcascade_frontalface_default.xml";
-        bool debugMode = debug_mode;
+        // Paths
+        string folder_img_path = "../";
+        string classifier_path = "../model/";
+
+        if (readConfig["Images"]["Folder_path"].find('/') == 0) {
+            // Pegando pela raiz do cliente
+            folder_img_path = readConfig["Images"]["Folder_path"];
+        } else {
+            // Apenas o nome da pasta padrão
+            folder_img_path = folder_img_path + readConfig["Images"]["Folder_path"];
+        }
+
+        if (readConfig["Model"]["Model_name"] != ""){
+            classifier_path = classifier_path + readConfig["Model"]["Model_name"];
+        } else {
+            classifier_path = classifier_path + "haarcascade_frontalface_default.xml";
+        }
 
         if(debugMode){
             // Mostra quais configs estão sendo usadas.
@@ -77,11 +96,18 @@ namespace ReaderFacesFolder {
     void ReaderFacesInFolder:: read_faces_in_folder(const string& path_file, bool debug_mode) {
         // Especifica a largura máxima desejada para a imagem
         // PADRÃO
+        Config config;
+        auto configurations = config.read_config("../config.ini");
         int maxWidth = 500;
         int maxHeight = 1200;
         bool debugMode = debug_mode;
-        string path_file_img = path_file;
-        string classifier_path = "../model/haarcascade_frontalface_default.xml";
+
+        string classifier_path = "../model/";
+        if (configurations["Model"]["Model_name"] != ""){
+            classifier_path = classifier_path + configurations["Model"]["Model_name"];
+        } else {
+            classifier_path = classifier_path + "haarcascade_frontalface_default.xml";
+        }
 
         if(debugMode){
             // Mostra quais configs estão sendo usadas.
@@ -99,7 +125,7 @@ namespace ReaderFacesFolder {
 
         // Fazendo a leitura da imagem
         // Carregar a imagem
-        Mat img = cv::imread(path_file_img);
+        Mat img = cv::imread(path_file);
 
         vector<Rect> detections;
         // classifier->detectMultiScale(img, detections);

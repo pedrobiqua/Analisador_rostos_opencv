@@ -38,6 +38,8 @@ add_executable(OpenCV_Learn main.cpp
         options/ReaderFacesInFolder.h++
         gui/OptionsWindow.cpp
         gui/OptionsWindow.hpp
+        util/Config.cpp
+        util/Config.hpp
 )
 
 # Vincule o OpenCV ao executável

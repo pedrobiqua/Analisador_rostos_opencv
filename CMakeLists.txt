@@ -30,10 +30,14 @@ link_directories(${GTKMM_LIBRARY_DIRS})
 add_definitions(${GTKMM_CFLAGS_OTHER})
 
 add_executable(OpenCV_Learn main.cpp
-        ReaderFilesInFolder.cpp
-        ReaderFilesInFolder.h
-        MainWindow.cpp
-        MainWindow.h
+        util/ReaderFilesInFolder.cpp
+        util/ReaderFilesInFolder.h
+        gui/MainWindow.cpp
+        gui/MainWindow.h
+        options/ReaderFacesInFolder.cpp
+        options/ReaderFacesInFolder.h++
+        gui/OptionsWindow.cpp
+        gui/OptionsWindow.hpp
 )
 
 # Vincule o OpenCV ao executável

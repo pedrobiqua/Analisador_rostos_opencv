@@ -7,6 +7,8 @@
 
 #include <gtkmm.h>
 #include <iostream>
+#include "../options/ReaderFacesInFolder.h++"
+#include "OptionsWindow.hpp"
 
 class MainWindow : public Gtk::Window {
     Gtk::Fixed m_fixed;
@@ -14,6 +16,8 @@ class MainWindow : public Gtk::Window {
     Gtk::Button m_button1, m_button2, m_button3;
     Gtk::Frame m_frame;
     Gtk::LinkButton m_link_button;
+
+    OptionsWindow m_options_window;
 
 public:
     MainWindow();
@@ -24,7 +28,8 @@ public:
 protected:
     void on_button_read_faces_in_folder();
     void on_button_read_face();
-    void options();
+    void open_options();
+    std::string open_file_dialog(const std::string &title, Gtk::FileChooserAction action, const std::vector<std::string> &image_filters);
 
 };
 

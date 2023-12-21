@@ -28,6 +28,10 @@ sudo apt-get install libopencv-dev
 sudo apt-get install libgtkmm-3.0-dev
 ```
 
+## System Image
+![image](https://github.com/pedrobiqua/Analisador_rostos_opencv/assets/65463695/40a9efc7-2af0-4f58-9871-33d640ec1048)
+
+
 ## Execution
 To run the system, use Cmake file CMakeLists.txt
 

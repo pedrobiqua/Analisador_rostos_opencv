@@ -34,5 +34,8 @@ To run the system, use Cmake file CMakeLists.txt
 ## Contribution
 Contributions are welcome! Feel free to open issues and propose improvements.
 
+## Developing
+We are creating the `.deb` package for this application, available only for Linux (Only those that support .deb), it will be implemented for Windows in 2024.
+
 ## License
 This project is distributed under the MIT License.

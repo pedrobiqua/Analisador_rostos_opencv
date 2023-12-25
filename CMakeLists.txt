@@ -3,6 +3,9 @@ project(OpenCV_Learn)
 
 set(CMAKE_CXX_STANDARD 17)
 
+include(CopyFiles.cmake)
+copy_files_to_destination()
+
 # Adiciona as flags de compilação
 add_compile_options(-Wall -g -MMD)
 

@@ -25,6 +25,7 @@ function(copy_files_to_destination)
 
     # Caminho completo para o arquivo config.ini dentro de .visualisador-rostos
     set(CONFIG_FILE "${HIDDEN_FOLDER_PATH}/config.ini")
+    set(IMAGE_FILE "${HIDDEN_FOLDER_PATH}/id-do-rosto.ico")
 
     # Verifica se a pasta oculta já existe
     file(MAKE_DIRECTORY ${HIDDEN_FOLDER_PATH} EXIST_OK ERROR_VARIABLE MAKE_DIRECTORY_ERROR)
@@ -38,8 +39,10 @@ function(copy_files_to_destination)
 
         # Copia o arquivo config.ini para o diretório desejado
         configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.ini "${CONFIG_FILE}" COPYONLY)
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/id-do-rosto.ico "${IMAGE_FILE}" COPYONLY)
 
         message(STATUS "Subpastas 'model' e 'img' copiadas para: ${HIDDEN_FOLDER_PATH}")
         message(STATUS "Arquivo 'config.ini' copiado para: ${HIDDEN_FOLDER_PATH}")
+        message(STATUS "Arquivo 'id-do-rosto.ico' copiado para: ${HIDDEN_FOLDER_PATH}")
     endif()
 endfunction()

@@ -19,6 +19,11 @@ std::string FolderManagment::get_config_file() {
     return home_folder + "/config.ini";
 }
 
+std::string FolderManagment::get_image_ico() {
+    auto home_folder = get_home_folder();
+    return home_folder + "/id-do-rosto.ico";
+}
+
 std::string FolderManagment::get_home_folder() {
     std::string homeDir = getenv("HOME");
 

@@ -18,8 +18,8 @@ namespace ReaderFacesFolder {
         int maxHeight = 1200;
 
         // Paths
-        string folder_img_path = "../";
-        string classifier_path = "../model/";
+        string folder_img_path = FolderManagment::get_img_folder();
+        string classifier_path = FolderManagment::get_model_folder() + "/";
 
         if (readConfig["Images"]["Folder_path"].find('/') == 0) {
             // Pegando pela raiz do cliente

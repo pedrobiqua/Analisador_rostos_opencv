@@ -38,7 +38,7 @@ void MainWindow::draw_widgets() {
     set_title("Leitor de rostos");
     set_default_size(300, 400);
 
-    const std::string icon_path = "../id-do-rosto.ico";
+    const std::string icon_path = FolderManagment::get_image_ico();
     set_icon_from_file(icon_path);
 
     // Fixed

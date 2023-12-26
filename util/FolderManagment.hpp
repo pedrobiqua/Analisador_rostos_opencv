@@ -15,6 +15,7 @@ public:
     static std::string get_model_folder();
     static std::string get_img_folder();
     static std::string get_config_file();
+    static std::string get_image_ico();
     static std::string get_home_folder();
 };
 

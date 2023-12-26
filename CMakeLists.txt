@@ -3,8 +3,8 @@ project(OpenCV_Learn)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include(CopyFiles.cmake)
-copy_files_to_destination()
+# include(CopyFiles.cmake)
+# copy_files_to_destination()
 
 # Adiciona as flags de compilação
 add_compile_options(-Wall -g -MMD)
@@ -43,6 +43,8 @@ add_executable(OpenCV_Learn main.cpp
         gui/OptionsWindow.hpp
         util/Config.cpp
         util/Config.hpp
+        util/FolderManagment.cpp
+        util/FolderManagment.hpp
 )
 
 # Vincule o OpenCV ao executável

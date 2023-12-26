@@ -13,6 +13,7 @@
 #include <opencv2/objdetect.hpp>
 #include "../util/ReaderFilesInFolder.h"
 #include "../util/Config.hpp"
+#include "../util/FolderManagment.hpp"
 
 using namespace cv;
 using namespace std;

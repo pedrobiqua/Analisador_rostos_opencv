@@ -45,7 +45,7 @@ void OptionsWindow::set_hierarchy(){
 
 void OptionsWindow::draw_widgets() {
     Config config;
-    auto configurations = config.read_config("../config.ini");
+    auto configurations = config.read_config(FolderManagment::get_config_file());
 
     set_title("Opções");
     set_default_size(600, 400);
@@ -69,7 +69,8 @@ void OptionsWindow::draw_widgets() {
     // Combo Model
     m_combo_model.set_visible(true);
     m_combo_model.set_can_focus(true);
-    auto files = reader_files::ReaderFilesInFolder::read_files_in_folder("../model");
+    auto model_folder_path = FolderManagment::get_model_folder();
+    auto files = reader_files::ReaderFilesInFolder::read_files_in_folder(model_folder_path);
     for(auto& file : files){
         m_combo_model.append(file);
     }
@@ -131,7 +132,7 @@ void OptionsWindow::on_button_apply_clicked() {
     if (show_yes_no_dialog("Você deseja continuar?", *this)) {
         std::cout << "Usuário clicou em Sim." << std::endl;
         Config config;
-        std::string nomeArquivo = "../config.ini";
+        std::string nomeArquivo = FolderManagment::get_config_file();
         std::map<std::string, std::map<std::string, std::string>> configuracao = config.read_config(nomeArquivo);
 
         config.edit_config(configuracao, "Images", "Folder_path", folder_selected);

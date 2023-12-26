@@ -9,8 +9,9 @@ namespace ReaderFacesFolder {
 
         bool debugMode = debug_mode;
         Config config;
-        std::string nomeArquivo = "../config.ini";
-        std::map<std::string, std::map<std::string, std::string>> readConfig = config.read_config(nomeArquivo);
+        auto config_file = FolderManagment::get_config_file();
+        // std::string nomeArquivo = "../config.ini";
+        std::map<std::string, std::map<std::string, std::string>> readConfig = config.read_config(config_file);
 
         // Especifica a largura máxima desejada para a imagem
         int maxWidth = 500;
@@ -28,7 +29,7 @@ namespace ReaderFacesFolder {
             folder_img_path = folder_img_path + readConfig["Images"]["Folder_path"];
         }
 
-        if (readConfig["Model"]["Model_name"] != ""){
+        if (readConfig["Model"]["Model_name"].empty()){
             classifier_path = classifier_path + readConfig["Model"]["Model_name"];
         } else {
             classifier_path = classifier_path + "haarcascade_frontalface_default.xml";
@@ -97,13 +98,13 @@ namespace ReaderFacesFolder {
         // Especifica a largura máxima desejada para a imagem
         // PADRÃO
         Config config;
-        auto configurations = config.read_config("../config.ini");
+        auto configurations = config.read_config(FolderManagment::get_config_file());
         int maxWidth = 500;
         int maxHeight = 1200;
         bool debugMode = debug_mode;
 
-        string classifier_path = "../model/";
-        if (configurations["Model"]["Model_name"] != ""){
+        string classifier_path = FolderManagment::get_model_folder() + "/";
+        if (configurations["Model"]["Model_name"].empty()){
             classifier_path = classifier_path + configurations["Model"]["Model_name"];
         } else {
             classifier_path = classifier_path + "haarcascade_frontalface_default.xml";

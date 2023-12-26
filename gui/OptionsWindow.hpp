@@ -9,6 +9,7 @@
 #include <iostream>
 #include "../util/ReaderFilesInFolder.h"
 #include "../util/Config.hpp"
+#include "../util/FolderManagment.hpp"
 
 class OptionsWindow : public Gtk::Window {
     Gtk::Fixed m_fixed;

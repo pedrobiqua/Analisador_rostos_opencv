@@ -45,12 +45,17 @@ namespace ReaderFacesFolder {
             //     std::cout << "GTK: " << WITH_GTK << std::endl;
         }
 
+        // TODO: TROCAR ISSO, POIS VAMOS IMPLEMENTAR O TENSORFLOW E SEUS ARQUIVOS (SAVEDMODEL).
+        // USAR O MODULO DNN
         auto files = reader_files::ReaderFilesInFolder::read_files_in_folder(folder_img_path);
         auto classifier = new CascadeClassifier();
         classifier->load(classifier_path);
         vector<Mat> readed_images;
 
         // Fazendo a leitura das imagens
+        // TODO: REFATORAR O CODIGO, POIS A PARTE DE DETECÇÕES ESTÁ REPETIDA
+        // OBS: ISSO SERÁ IMPORTANTE PARA A ESCALABILIDADE DO PROJETO
+        // TAMBÉM IRÁ FACILITAR NA HORA DE IMPLEMENTAR O TENSORFLOW.
         for(auto& file : files){
             string image_path = folder_img_path + "/";
             image_path.append(file);
@@ -59,11 +64,9 @@ namespace ReaderFacesFolder {
             Mat img = cv::imread(image_path);
 
             vector<Rect> detections;
-            // classifier->detectMultiScale(img, detections);
             classifier->detectMultiScale(img, detections);
 
             for(auto &faces : detections) {
-                // rectangle(img, faces, cv::Scalar(255, 0, 0), 2);
                 rectangle(img, faces, cv::Scalar(255, 0, 0), 2);
                 if(debugMode) cout << faces << "\n";
             }

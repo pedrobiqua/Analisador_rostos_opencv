@@ -11,6 +11,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/objdetect.hpp>
+#include <opencv2/dnn.hpp>
 #include "../util/ReaderFilesInFolder.h"
 #include "../util/Config.hpp"
 #include "../util/FolderManagment.hpp"

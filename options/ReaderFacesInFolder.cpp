@@ -2,7 +2,7 @@
 // Created by pedro on 21/12/23.
 //
 
-#include "ReaderFacesInFolder.h++"
+#include "options/ReaderFacesInFolder.hpp"
 
 namespace ReaderFacesFolder {
     void ReaderFacesInFolder:: read_faces_in_folder(bool debug_mode) {

@@ -2,7 +2,7 @@
 // Created by pedro on 21/12/23.
 //
 
-#include "OptionsWindow.hpp"
+#include "gui/OptionsWindow.hpp"
 
 OptionsWindow::OptionsWindow() : m_box(Gtk::Orientation::ORIENTATION_VERTICAL),
                                  m_label_folder("Pasta de Leitura:"),

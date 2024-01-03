@@ -3,11 +3,11 @@ project(OpenCV_Learn)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# include(CopyFiles.cmake)
-# copy_files_to_destination()
-
 # Adiciona as flags de compilação
 add_compile_options(-Wall -g -MMD)
+
+# Adiciona a pasta include
+include_directories(include)
 
 # Encontre o pacote OpenCV
 find_package(OpenCV REQUIRED)
@@ -32,23 +32,24 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 link_directories(${GTKMM_LIBRARY_DIRS})
 add_definitions(${GTKMM_CFLAGS_OTHER})
 
-add_executable(OpenCV_Learn main.cpp
+add_executable(OpenCV_Learn src/main.cpp
         util/ReaderFilesInFolder.cpp
-        util/ReaderFilesInFolder.h
+        include/util/ReaderFilesInFolder.h
         gui/MainWindow.cpp
-        gui/MainWindow.h
+        include/gui/MainWindow.hpp
         options/ReaderFacesInFolder.cpp
-        options/ReaderFacesInFolder.h++
+        include/options/ReaderFacesInFolder.hpp
         gui/OptionsWindow.cpp
-        gui/OptionsWindow.hpp
+        include/gui/OptionsWindow.hpp
         util/Config.cpp
-        util/Config.hpp
+        include/util/Config.hpp
         util/FolderManagment.cpp
-        util/FolderManagment.hpp
+        include/util/FolderManagment.hpp
 )
 
 # Vincule o OpenCV ao executável
-target_link_libraries(OpenCV_Learn PRIVATE ${GTK3_LIBRARIES} ${OpenCV_LIBS} ${GTKMM_LIBRARIES})
+target_link_libraries(OpenCV_Learn PRIVATE ${GTK3_LIBRARIES} ${OpenCV_LIBS} ${GTKMM_LIBRARIES} stdc++fs)
+
 # target_link_libraries(OpenCV_Learn PRIVATE ${OpenCV_LIBS} ${GTKMM_LIBRARIES})
 message(STATUS "CMake CXX Flags: ${CMAKE_CXX_FLAGS}")
 message(STATUS "GTK Include Directories: ${GTK2_INCLUDE_DIRS}")

@@ -2,8 +2,8 @@
 // Created by pedro on 21/12/23.
 //
 
-#ifndef OPENCV_LEARN_READERFACESINFOLDER_H
-#define OPENCV_LEARN_READERFACESINFOLDER_H
+#ifndef OPENCV_LEARN_READERFACESINFOLDER_HPP
+#define OPENCV_LEARN_READERFACESINFOLDER_HPP
 
 #include <iostream>
 #include <vector>
@@ -12,9 +12,9 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/objdetect.hpp>
 #include <opencv2/dnn.hpp>
-#include "../util/ReaderFilesInFolder.h"
-#include "../util/Config.hpp"
-#include "../util/FolderManagment.hpp"
+#include "util/ReaderFilesInFolder.h"
+#include "util/Config.hpp"
+#include "util/FolderManagment.hpp"
 
 using namespace cv;
 using namespace std;
@@ -29,4 +29,4 @@ namespace ReaderFacesFolder {
 
 } // ReaderFacesFolder
 
-#endif //OPENCV_LEARN_READERFACESINFOLDER_H
+#endif //OPENCV_LEARN_READERFACESINFOLDER_HPP

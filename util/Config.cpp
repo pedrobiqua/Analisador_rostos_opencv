@@ -2,7 +2,7 @@
 // Created by pedro on 21/12/23.
 //
 
-#include "Config.hpp"
+#include "util/Config.hpp"
 
 std::map<std::string, std::map<std::string, std::string>> Config::read_config(const std::string& nomeArquivo) {
     std::map<std::string, std::map<std::string, std::string>> configuracao;

@@ -2,7 +2,7 @@
 // Created by pedro on 18/12/23.
 //
 
-#include "MainWindow.h"
+#include "gui/MainWindow.hpp"
 
 MainWindow::MainWindow() : m_box{Gtk::Orientation::ORIENTATION_VERTICAL}, m_frame{"Opções"}
 {

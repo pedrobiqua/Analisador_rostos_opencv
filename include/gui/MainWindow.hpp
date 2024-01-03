@@ -2,12 +2,12 @@
 // Created by pedro on 18/12/23.
 //
 
-#ifndef OPENCV_LEARN_MAINWINDOW_H
-#define OPENCV_LEARN_MAINWINDOW_H
+#ifndef OPENCV_LEARN_MAINWINDOW_HPP
+#define OPENCV_LEARN_MAINWINDOW_HPP
 
 #include <gtkmm.h>
 #include <iostream>
-#include "../options/ReaderFacesInFolder.h++"
+#include "options/ReaderFacesInFolder.hpp"
 #include "OptionsWindow.hpp"
 
 class MainWindow : public Gtk::Window {
@@ -34,4 +34,4 @@ protected:
 };
 
 
-#endif //OPENCV_LEARN_MAINWINDOW_H
+#endif //OPENCV_LEARN_MAINWINDOW_HPP

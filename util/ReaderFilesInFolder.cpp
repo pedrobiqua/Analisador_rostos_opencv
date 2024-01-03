@@ -2,7 +2,7 @@
 // Created by pedro on 12/12/23.
 //
 
-#include "ReaderFilesInFolder.h"
+#include "util/ReaderFilesInFolder.h"
 
 namespace reader_files {
     std::vector<std::string> ReaderFilesInFolder::read_files_in_folder(const std::string &folder_path) {

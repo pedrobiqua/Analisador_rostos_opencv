@@ -11,7 +11,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/objdetect.hpp>
-#include <opencv2/dnn.hpp>
+#include <opencv2/dnn/dnn.hpp>
 #include "util/ReaderFilesInFolder.h"
 #include "util/Config.hpp"
 #include "util/FolderManagment.hpp"
@@ -25,6 +25,11 @@ namespace ReaderFacesFolder {
     public:
         static void read_faces_in_folder(bool debug_mode = false);
         static void read_faces_in_folder(const string& path_file, bool debug_mode = false);
+    private:
+        static Mat detected_images(const string& image_path, const string& classifier_path);
+        static Mat detected_images_tensorflow(const string& image_path, const string& savedfile_path);
+        static void show_configs_libs(bool debugMode);
+        static bool is_savedfile(const string& str);
     };
 
 } // ReaderFacesFolder

@@ -37,8 +37,8 @@ add_executable(OpenCV_Learn src/main.cpp
         include/util/ReaderFilesInFolder.h
         gui/MainWindow.cpp
         include/gui/MainWindow.hpp
-        options/ReaderFacesInFolder.cpp
-        include/options/ReaderFacesInFolder.hpp
+        core/ReaderFacesInFolder.cpp
+        include/core/ReaderFacesInFolder.hpp
         gui/OptionsWindow.cpp
         include/gui/OptionsWindow.hpp
         util/Config.cpp

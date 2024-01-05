@@ -7,7 +7,7 @@
 
 #include <gtkmm.h>
 #include <iostream>
-#include "options/ReaderFacesInFolder.hpp"
+#include "core/ReaderFacesInFolder.hpp"
 #include "OptionsWindow.hpp"
 
 class MainWindow : public Gtk::Window {

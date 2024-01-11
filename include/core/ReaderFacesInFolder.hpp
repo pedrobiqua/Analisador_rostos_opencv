@@ -27,9 +27,9 @@ namespace ReaderFacesFolder {
         static void read_faces_in_folder(const string& path_file, bool debug_mode = false);
     private:
         static Mat detected_images(const string& image_path, const string& classifier_path);
-        static Mat detected_images_tensorflow(const string& image_path, const string& savedfile_path);
+        // static Mat detected_images_tensorflow(const string& image_path, const string& savedfile_path);
         static void show_configs_libs(bool debugMode);
-        static bool is_savedfile(const string& str);
+        static bool isSavedfile(const string& str);
     };
 
 } // ReaderFacesFolder

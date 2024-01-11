@@ -43,14 +43,11 @@ namespace ReaderFacesFolder {
             string image_path = folder_img_path + "/";
             image_path.append(file);
             // Carrega a imagem e faz as detecções
-            if (!is_savedfile(readConfig["Model"]["Model_name"])){
+            if (!isSavedfile(readConfig["Model"]["Model_name"])){
                 img_detections = detected_images(image_path, classifier_path);
             } else {
-                // ====================
-                //        TESTE
-                // ====================
-                classifier_path = "/home/pedro/projects/FrezeModels/frozen_model/frozen_graph.pb";
-                img_detections = detected_images_tensorflow(image_path, classifier_path);
+                // img_detections = detected_images_tensorflow(image_path, classifier_path);
+                cout << "Ainda não foi implementado" << endl;
             }
             readedImages.push_back(img_detections);
         }
@@ -115,12 +112,13 @@ namespace ReaderFacesFolder {
         return img;
     }
 
-    Mat ReaderFacesInFolder::detected_images_tensorflow(const string& image_path, const string& savedfile_path){
+    // TODO: Estudar mais como funciona a integração do tensorflow com o opencv, pois os input de dados não estavam de acordo
+    // Mat ReaderFacesInFolder::detected_images_tensorflow(const string& image_path, const string& savedfile_path){
         // Carregue o modelo SavedModel
         // Obtenha o bitmask dos backends disponíveis
 
         // Estudar melhor a lib do opencv juntamente com o tensorflow
-        cv::Mat image = cv::imread(image_path);
+        // cv::Mat image = cv::imread(image_path);
         /*
         auto net = cv::dnn::readNetFromTensorflow(savedfile_path);
         // Leia uma imagem de entrada
@@ -155,8 +153,8 @@ namespace ReaderFacesFolder {
         cv::waitKey(0);
         */
 
-        return image;
-    }
+        // return image;
+    //}
 
     void ReaderFacesInFolder::show_configs_libs(bool debugMode){
         if(debugMode){
@@ -167,7 +165,7 @@ namespace ReaderFacesFolder {
         }
     }
 
-    bool ReaderFacesInFolder::is_savedfile(const string& str) {
+    bool ReaderFacesInFolder::isSavedfile(const string& str) {
         // const std::string& extensao
         string extensao = ".pb";
         if (str.length() >= extensao.length()) {

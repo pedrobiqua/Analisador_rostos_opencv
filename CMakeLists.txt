@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27)
-project(OpenCV_Learn)
+project(CheckFacesProj)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -32,7 +32,7 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 link_directories(${GTKMM_LIBRARY_DIRS})
 add_definitions(${GTKMM_CFLAGS_OTHER})
 
-add_executable(OpenCV_Learn src/main.cpp
+add_executable(CheckFacesProj src/main.cpp
         util/ReaderFilesInFolder.cpp
         include/util/ReaderFilesInFolder.h
         gui/MainWindow.cpp
@@ -47,10 +47,10 @@ add_executable(OpenCV_Learn src/main.cpp
         include/util/FolderManagment.hpp
 )
 
-# Vincule o OpenCV ao executável
-target_link_libraries(OpenCV_Learn PRIVATE ${GTK3_LIBRARIES} ${OpenCV_LIBS} ${GTKMM_LIBRARIES} stdc++fs)
+# Vincule o CheckFaces ao executável
+target_link_libraries(CheckFacesProj PRIVATE ${GTK3_LIBRARIES} ${OpenCV_LIBS} ${GTKMM_LIBRARIES} stdc++fs)
 
-# target_link_libraries(OpenCV_Learn PRIVATE ${OpenCV_LIBS} ${GTKMM_LIBRARIES})
+# target_link_libraries(CheckFacesProj PRIVATE ${OpenCV_LIBS} ${GTKMM_LIBRARIES})
 message(STATUS "CMake CXX Flags: ${CMAKE_CXX_FLAGS}")
 message(STATUS "GTK Include Directories: ${GTK2_INCLUDE_DIRS}")
 message(STATUS "GTK Libraries: ${GTK2_LIBRARIES}")

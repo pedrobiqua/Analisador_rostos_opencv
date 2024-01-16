@@ -134,14 +134,11 @@ void OptionsWindow::on_button_apply_clicked() {
         Config config;
         std::string nomeArquivo = FolderManagment::get_config_file();
         std::map<std::string, std::map<std::string, std::string>> configuracao = config.read_config(nomeArquivo);
-
         config.edit_config(configuracao, "Images", "Folder_path", folder_selected);
         config.edit_config(configuracao, "Model", "Model_name", active_text);
-
         config.save_config(nomeArquivo, configuracao);
 
-        // std::cout << "Model_folder: " << configuracao["Model"]["Model_name"] << std::endl;
-        // std::cout << "Img_folder: " << configuracao["Images"]["Folder_path"] << std::endl;
+        close();
     }
 }
 
